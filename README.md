@@ -28,7 +28,7 @@ https://github.com/mousmimukherjee-dev/BookVault
 - View books
 - Add new book
 - Delete book
-- Edit book (in progress)
+- Edit book 
 
 ### My Quotes
 - View saved quotes
