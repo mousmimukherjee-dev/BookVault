@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { BookService } from '../../services/BookService';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-card',
@@ -10,27 +10,27 @@ import { BookService } from '../../services/BookService';
   styleUrl: './book-card.css',
 })
 export class BookCard {
+  @Input() book: any;
 
-  @Input() book:any
-  
   showBookCard: any = true;
-  
 
-  constructor(private bookService : BookService){}
+  constructor(
+    private bookService: BookService,
+    private router: Router,
+  ) {}
 
-  deleteBookCard(){
-
+  deleteBookCard() {
     this.bookService.deleteBook(this.book).subscribe({
-
-      next:(data)=>{
-
-        this.showBookCard = false
-      },error:(error)=>{
-
-      console.error("An Error Occured:", error)
-      }
-    })
+      next: (data) => {
+        this.showBookCard = false;
+      },
+      error: (error) => {
+        console.error('An Error Occured:', error);
+      },
+    });
   }
 
-   
+  editBook() {
+    this.router.navigate([`/dashboard/edit-book/${this.book.id}`]);
+  }
 }

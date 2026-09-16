@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BookService {
   private apiURL = 'https://bookvault-api-mousumi-byaaafaee0emh6a2.swedencentral-01.azurewebsites.net/api/Books';
-
+  
   constructor(private http: HttpClient) {}
 
   getBooks(): Observable<any> {
@@ -27,6 +27,17 @@ export class BookService {
   deleteBook(book:any) : Observable<any>{
 
   return  this.http.delete(`${this.apiURL}/${ book.id }`);
+  }
+
+  getBookById(id: number): Observable <any>{
+
+    return this.http.get(`${this.apiURL}/${id}`);
+
+  }
+
+  saveBook(book:any) : Observable<any>{
+
+  return this.http.put(`${this.apiURL}/${book.id}`,book);
   }
 
    

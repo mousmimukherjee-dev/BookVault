@@ -5,6 +5,7 @@ import { Quotes } from './components/quotes/quotes';
 import { DashboardLayout } from './components/dashboard-layout/dashboard-layout';
 import { AddBook } from './components/add-book/add-book';
 import { AddQuote } from './components/add-quote/add-quote';
+import { EditBook } from './edit-book/edit-book';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,11 @@ export const routes: Routes = [
       {
         path:'add-book',
         component:AddBook
+      },
+      {
+        path:'edit-book/:id',
+        component:EditBook
+
       },
       {
         path:'add-quote',
