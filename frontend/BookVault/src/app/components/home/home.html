@@ -1,14 +1,7 @@
-<div class="container py-4">
+<div class="home">
   <app-header></app-header>
-
-
-
-   <div class="theme-button">
-    <button
-      type="button"
-      class="btn btn-outline-secondary btn-sm"
-      (click)="toggleTheme()"
-    >
+  <div class="theme-button">
+    <button type="button" class="btn btn-outline-secondary btn-sm" (click)="toggleTheme()">
       @if (themeService.currentTheme === 'dark') {
         <i class="fa-solid fa-sun me-1"></i>
         Light
@@ -19,124 +12,107 @@
     </button>
   </div>
 
-  <div class="home">
+  <div class="container">
     <div class="d-flex justify-content-between gap-3 mb-4 btn-cont">
       <button class="button" (click)="showLogin()">
         <i class="fa-solid fa-right-to-bracket"></i> Sign In
       </button>
 
-
-  <button class="button" (click)="showRegister()">
-    <i class="fa-solid fa-user-plus"></i> Register
-  </button>
-</div>
-
-@if (activeButton() == 'Sign In') {
-  <form class="login-form" (ngSubmit)="loginUser()">
-    <div class="form-group">
-      <label for="email" class="form-label">
-      Email
-    </label>
-
-      <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="Enter email"
-      class="form-control"
-      [(ngModel)]="loginData.email"
-    />
+      <button class="button" (click)="showRegister()">
+        <i class="fa-solid fa-user-plus"></i> Register
+      </button>
     </div>
 
-    <div class="form-group">
-      <label for="password" class="form-label">Password</label>
+    @if (activeButton() == 'Sign In') {
+      <form class="login-form" (ngSubmit)="loginUser()">
+        <div class="form-group">
+          <label for="email" class="form-label"> Email </label>
 
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Enter password"
-        class="form-control"
-        [(ngModel)]="loginData.password"
-      />
-    </div>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            class="form-control"
+            [(ngModel)]="loginData.email"
+          />
+        </div>
 
-    <button type="submit" class="button-blue">
-      <i class="fa-solid fa-right-to-bracket"></i> Sign In
-    </button>
-  </form>
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
 
-} @else {
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            class="form-control"
+            [(ngModel)]="loginData.password"
+          />
+        </div>
 
-  <form class="register-form" (ngSubmit)="registerUser()">
+        <button type="submit" class="button-blue">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In
+        </button>
+      </form>
+    } @else {
+      <form class="register-form" (ngSubmit)="registerUser()">
+        <div class="form-group">
+          <label for="regUsername" class="form-label"> Choose username </label>
 
-    <div class="form-group">
-      <label for="regUsername" class="form-label">
-        Choose username
-      </label>
+          <input
+            type="text"
+            id="regUsername"
+            name="name"
+            [(ngModel)]="registerData.name"
+            placeholder="Choose username"
+            class="form-control"
+          />
+        </div>
 
-      <input
-        type="text"
-        id="regUsername"
-        name="name"
-        [(ngModel)]="registerData.name"
-        placeholder="Choose username"
-        class="form-control"
-      />
-    </div>
+        <div class="form-group">
+          <label for="regEmail" class="form-label"> Email </label>
 
-    <div class="form-group">
-      <label for="regEmail" class="form-label">
-        Email
-      </label>
+          <input
+            type="email"
+            id="regEmail"
+            name="email"
+            [(ngModel)]="registerData.email"
+            placeholder="Enter email"
+            class="form-control"
+          />
+        </div>
 
-      <input
-        type="email"
-        id="regEmail"
-        name="email"
-        [(ngModel)]="registerData.email"
-        placeholder="Enter email"
-        class="form-control"
-      />
-    </div>
+        <div class="form-group">
+          <label for="regPassword" class="form-label"> Choose password </label>
 
-    <div class="form-group">
-      <label for="regPassword" class="form-label">
-        Choose password
-      </label>
+          <input
+            type="password"
+            id="regPassword"
+            name="password"
+            [(ngModel)]="registerData.password"
+            placeholder="Choose password"
+            class="form-control"
+          />
+        </div>
 
-      <input
-        type="password"
-        id="regPassword"
-        name="password"
-        [(ngModel)]="registerData.password"
-        placeholder="Choose password"
-        class="form-control"
-      />
-    </div>
+        <div class="form-group">
+          <label for="confirmPassword" class="form-label"> Confirm password </label>
 
-    <div class="form-group">
-      <label for="confirmPassword" class="form-label">
-        Confirm password
-      </label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Repeat password"
+            [(ngModel)]="registerData.confirmPassword"
+            class="form-control"
+          />
+        </div>
 
-      <input
-        type="password"
-        id="confirmPassword"
-        name="confirmPassword"
-        placeholder="Repeat password"
-        [(ngModel)]="registerData.confirmPassword"
-        class="form-control"
-      />
-    </div>
-
-    <button type="submit" class="button-blue">
-      <i class="fa-solid fa-user-plus"></i> Register
-    </button>
-
-  </form>
-}
-
-
+        <button type="submit" class="button-blue">
+          <i class="fa-solid fa-user-plus"></i> Register
+        </button>
+      </form>
+    }
   </div>
 </div>

@@ -40,10 +40,16 @@
 }
 
 .home {
-  width: 450px;
-  max-width: 90%;
+  
+  width: 100%;
+  max-width: 500px;
   margin: 0 auto;
-   color: var(--text-light-gray);
+  color: var(--text-light-gray);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .theme-button {
