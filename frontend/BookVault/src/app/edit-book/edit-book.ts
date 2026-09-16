@@ -33,6 +33,7 @@ export class EditBook {
       next:(data:any)=>{
 
         this.newBook = data
+        this.newBook.publicationDate = this.newBook.publicationDate?.split("T")[0]
       },error : (error: any) => {
 
         console.error('An Error Occured:', error);
