@@ -6,6 +6,7 @@ import { DashboardLayout } from './components/dashboard-layout/dashboard-layout'
 import { AddBook } from './components/add-book/add-book';
 import { AddQuote } from './components/add-quote/add-quote';
 import { EditBook } from './edit-book/edit-book';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -13,31 +14,37 @@ export const routes: Routes = [
     component: Home,
   },
   {
-    path: 'dashboard',
-    component: DashboardLayout,
-    children: [
-      {
-        path: '',
-        component: Dashboard,
-      },
+  path: 'dashboard',
+  component: DashboardLayout,
 
-      {
-        path: 'quotes',
-        component: Quotes,
-      },
-      {
-        path:'add-book',
-        component:AddBook
-      },
-      {
-        path:'edit-book/:id',
-        component:EditBook
+  // Check authentication before opening the dashboard.
+  canActivate: [authGuard],
 
-      },
-      {
-        path:'add-quote',
-        component:AddQuote
-      }
+  // Check authentication before opening any dashboard child page.
+  canActivateChild: [authGuard],
+
+  children: [
+    {
+      path: '',
+      component: Dashboard,
+    },
+    {
+      path: 'quotes',
+      component: Quotes,
+    },
+    {
+      path: 'add-book',
+      component: AddBook,
+    },
+    {
+      path: 'edit-book/:id',
+      component: EditBook,
+    },
+    {
+      path: 'add-quote',
+      component: AddQuote,
+    },
+
     ],
   },
 ];
